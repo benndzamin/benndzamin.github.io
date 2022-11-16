@@ -1,0 +1,42 @@
+body{
+    background: url("image.jpeg");
+    background-size: cover;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  }
+  .heading {
+    font-size: x-large;
+    color: #fff;
+    padding: 20px;
+    background: #212529;
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    border-bottom: 1px solid black;
+  }
+  .content {
+    padding: 20px;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    border: 1px solid #212529;
+  }
+  
+  .form-select{
+    hdisplay: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+.he{
+}
