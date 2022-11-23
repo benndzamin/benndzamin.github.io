@@ -85,11 +85,12 @@ $(document).ready(function () {
       }
     });
 
-    editFirstName.value = table.row(this.parentElement.parentElement).data().name;
-    editLastName.value = table.row(this.parentElement.parentElement).data().surname;
-    editEmail.value = table.row(this.parentElement.parentElement).data().email;
-    editCountry.value = table.row(this.parentElement.parentElement).data().country;
-    editCity.value = table.row(this.parentElement.parentElement).data().city;
+    let values = table.row(this.parentElement.parentElement).data();
+    editFirstName.value = values.name;
+    editLastName.value = values.surname;
+    editEmail.value = values.email;
+    editCountry.value = values.country;
+    editCity.value = values.city;
     
     function updateChanges(e) {
       e.preventDefault();
@@ -175,7 +176,7 @@ function dropdownOptions(){
           );
         }
       };
-
+      editCountry.value = table.row(this.parentElement.parentElement).data().country;
       editCity.value = table.row(this.parentElement.parentElement).data().city;
 }
 
