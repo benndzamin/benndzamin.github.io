@@ -92,10 +92,9 @@ $(document).ready(function () {
       }
     });
   }
-  
+
   function updateChanges(e) {
     e.preventDefault();
-    id++;
     data.forEach((item) => {
       if (item.id == functId) {
         index = data.indexOf(item);
@@ -103,7 +102,7 @@ $(document).ready(function () {
     });
 
     data[index] = {
-      id,
+      id: functId,
       name: editFirstName.value,
       surname: editLastName.value,
       email: editEmail.value,
