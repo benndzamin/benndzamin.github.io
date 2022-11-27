@@ -111,7 +111,7 @@ $(document).ready(function () {
     };
 
     localStorage.setItem("data", JSON.stringify(data));
-    table.clear().rows.add(data).draw();
+    table.clear().rows.add(data).draw(false);
     $("#editModal .close").click();
   }
   $(".update-changes").on("click", updateChanges);
