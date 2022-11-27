@@ -20,7 +20,8 @@ $(document).ready(function () {
   let editCountry = document.querySelector("#editSelectCountry");
   let editCity = document.querySelector("#editSelectCity");
   let obj;
-  let city;
+  let index;
+  let functId;
 
   //save data to localhost
   function saveData(e) {
@@ -77,38 +78,44 @@ $(document).ready(function () {
   //edit data in localhost and update values in modal
   function callUpdate(e) {
     e.preventDefault();
-    let id = table.row(this.parentElement.parentElement).data().id;
-    let index;
+    functId = table.row(this.parentElement.parentElement).data().id;
+    
     data.forEach((item) => {
-      if (item.id == id) {
+      if (item.id == functId) {
+        index = data.indexOf(item);
+        let values = table.row(this.parentElement.parentElement).data();
+            editFirstName.value = values.name;
+            editLastName.value = values.surname;
+            editEmail.value = values.email;
+            editCountry.value = values.country;
+            editCity.value = values.city;
+      }
+    });
+  }
+  
+  function updateChanges(e) {
+    e.preventDefault();
+    id++;
+    data.forEach((item) => {
+      if (item.id == functId) {
         index = data.indexOf(item);
       }
     });
 
-    let values = table.row(this.parentElement.parentElement).data();
-    editFirstName.value = values.name;
-    editLastName.value = values.surname;
-    editEmail.value = values.email;
-    editCountry.value = values.country;
-    editCity.value = values.city;
-    
-    function updateChanges(e) {
-      e.preventDefault();
-      data[index] = {
-        id: id,
-        name: editFirstName.value,
-        surname: editLastName.value,
-        email: editEmail.value,
-        country: editCountry.value,
-        city: editCity.value,
-      };
+    data[index] = {
+      id,
+      name: editFirstName.value,
+      surname: editLastName.value,
+      email: editEmail.value,
+      country: editCountry.value,
+      city: editCity.value,
+    };
 
-      localStorage.setItem("data", JSON.stringify(data));
-      table.clear().rows.add(data).draw(false);
-      $("#editModal .close").click();
-    }
-    $(".update-changes").on("click", updateChanges);
+    localStorage.setItem("data", JSON.stringify(data));
+    table.clear().rows.add(data).draw();
+    $("#editModal .close").click();
   }
+  $(".update-changes").on("click", updateChanges);
 
   //delete datatable entry
   function deleteEntry() {
